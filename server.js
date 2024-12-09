@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors=require("cors");
 const alumniRoutes = require('./routes/alumniRoutes');
+const authRoutes = require('./routes/authRoutes');
 const app = express();
 const PORT = 4000;
 app.use(cors());
@@ -14,6 +15,7 @@ mongoose.connect('mongodb+srv://KAPIL:BSG12345@bsgalumni.5yvsj.mongodb.net/').th
 });
 
 app.use('/api/alumni', alumniRoutes);
+app.use('/api/v1/auth', authRoutes);
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
